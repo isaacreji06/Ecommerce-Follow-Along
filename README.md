@@ -8,5 +8,6 @@
 - using react created the login page
 - created a components folder in src
 - created auth folder for the loginPage and signUpPage
-- installed tailwindcss and backend technologies
-- 
+- installed tailwindcss and backend technologies which are mongoose,express,nodemon and cors
+- succesfully created the login page for the ecommerce app
+  
