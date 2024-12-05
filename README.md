@@ -18,3 +18,11 @@
 - handled error in the utils file
 - installed tailwindcss and backend technologies which are mongoose,express,nodemon and cors
 - succesfully created the login page for the ecommerce app
+
+## Milestone 4
+- created the required folders in the backend file
+- created the userModel to add the user data to the database
+- added the middleware folder for the middleware
+- installed multer in the middleware folder
+- defining the usermodel function inside the models
+- created the route in the routes file
