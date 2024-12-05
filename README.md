@@ -9,4 +9,4 @@
 - created a components folder in src
 - created auth folder for the loginPage and signUpPage
 - installed tailwindcss and backend technologies
-- 
+## Milestone 3:
