@@ -1,5 +1,5 @@
-const userModel=require('../models/user.model')
-const ErrorHandler=require("../utils/ErrorHandler")
+const userModel=require('../models/user.model.js')
+const ErrorHandler=require("../utils/ErrorHandler.js")
 async function createUser(req,res){
     const {Name,email,password}=req.body
     const checkUserPresent=await userModel.findOne({

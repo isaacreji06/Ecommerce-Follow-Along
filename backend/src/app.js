@@ -5,7 +5,7 @@ if (process.env.NODE_ENV!=='PRODUCTION'){
 }
 const express=require('express')
 const app=express()
-const userRouter=require("./routes/user.route")
+const userRouter=require("./routes/user.route.js")
 
 
 app.get("/",(req,res)=>{
