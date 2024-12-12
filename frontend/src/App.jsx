@@ -1,10 +1,17 @@
 import React from 'react'
 import LoginPage from "./components/auth/loginPage"
-
+import SignupForm from "./components/auth/signupPage"
+import { Routes,Route } from 'react-router-dom'
 function App(){
   return( 
   <div>
-  <LoginPage />
+  {/* <LoginPage /> */}
+  {/* <SignupForm /> */}
+  <Routes>
+    <Route path="/" />
+    <Route path="/loginPage" element={<LoginPage />} />
+    <Route path="/signupPage" element={<SignupForm />}/>
+  </Routes>
   </div>
   )
 }
