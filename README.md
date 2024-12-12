@@ -26,3 +26,9 @@
 - installed multer in the middleware folder
 - defining the usermodel function inside the models
 - created the route in the routes file
+
+## Milestone 5
+- In the signup page in the components folder the code for the signup page is added
+- the signup page takes the datas such as name email password and file upload which takes the input as jpg png and jpeg
+- a file validation.js was creates so as to validate the data passed by the user in the signup form
+- react router dom is installed and routes are defined for login page and signup page
