@@ -33,6 +33,7 @@
 - a file validation.js was creates so as to validate the data passed by the user in the signup form
 - react router dom is installed and routes are defined for login page and signup page
 
+
 ## Milestone 7
 - Created the login and signup logic for the ecommerce application
   - Checking if the user exists
@@ -43,3 +44,4 @@
 - created the card.jsx in the components folder
 - made changes in the homePage.jsx file
 - Changed the routes in the app.jsx file
+
