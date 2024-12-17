@@ -8,7 +8,7 @@ function App(){
   {/* <LoginPage /> */}
   {/* <SignupForm /> */}
   <Routes>
-    <Route path="/" />
+    <Route path="/" element={<h1>Homepage</h1>} />
     <Route path="/loginPage" element={<LoginPage />} />
     <Route path="/signupPage" element={<SignupForm />}/>
   </Routes>
