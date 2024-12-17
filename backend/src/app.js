@@ -6,7 +6,7 @@ if (process.env.NODE_ENV!=='PRODUCTION'){
 const express=require('express')
 const app=express()
 const userRouter=require("./routes/user.route.js")
-
+app.use(express.json())
 
 app.get("/",(req,res)=>{
     return res.send("Welcome to backend")

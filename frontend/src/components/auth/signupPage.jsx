@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import validationFormObject from '../../validation.js';
+import { Link } from 'react-router-dom';
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -19,7 +20,8 @@ const[err,setError]=useState("")
 
 
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     const NameV=validationFormObject.validateName(formData.name)
     const EmailV= validationFormObject.validateEmail(formData.email)
     const PassV=validationFormObject.validatePass(formData.password)
@@ -32,6 +34,7 @@ const[err,setError]=useState("")
     if (typeof PassV=="string" && PassV.length>2){
         return setError(PassV)
     }
+    setError("")
   };
 
   return (
@@ -108,7 +111,7 @@ const[err,setError]=useState("")
             required
           />
         </div>
-
+        <p className='text-red'>{err}</p>
         {/* Submit Button */}
         <button
           type="submit"
@@ -116,7 +119,7 @@ const[err,setError]=useState("")
         >
           Sign Up
         </button>
-        <a className='text-center'>Already have an account?login <link to={"/loginPage"}></link></a>
+        <p className='text-center'>Already have an account?login <Link to={"./loginPage"} /></p>
       </form>
     </div>
   );
