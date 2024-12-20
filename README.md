@@ -33,6 +33,7 @@
 - a file validation.js was creates so as to validate the data passed by the user in the signup form
 - react router dom is installed and routes are defined for login page and signup page
 
+
 ## Milestone 7
 - Created the login and signup logic for the ecommerce application
   - Checking if the user exists
@@ -44,7 +45,9 @@
 - made changes in the homePage.jsx file
 - Changed the routes in the app.jsx file
 
+
 ## Milestone 9
 - The seller is now able to upload their products
 - they are able to insert multiple images
 - The error is also handled
+
