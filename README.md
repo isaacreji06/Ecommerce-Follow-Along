@@ -45,3 +45,9 @@
 - made changes in the homePage.jsx file
 - Changed the routes in the app.jsx file
 
+
+## Milestone 9
+- The seller is now able to upload their products
+- they are able to insert multiple images
+- The error is also handled
+
