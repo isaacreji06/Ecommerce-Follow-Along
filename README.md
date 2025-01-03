@@ -51,3 +51,6 @@
 - they are able to insert multiple images
 - The error is also handled
 
+## Milestone 10
+- Created the schema
+- the endpoint was created to write the data into the database using multer and cloudinary
