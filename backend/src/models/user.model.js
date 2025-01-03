@@ -1,4 +1,3 @@
-const { string } = require('i/lib/util');
 const mongoose=require('mongoose');
 const userSchema=new mongoose.Schema({
   Name:{type:String,require:[true,"please Enter the Name"]},
