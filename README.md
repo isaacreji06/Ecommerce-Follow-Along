@@ -54,3 +54,6 @@
 ## Milestone 10
 - Created the schema
 - the endpoint was created to write the data into the database using multer and cloudinary
+
+## Milestone 11
+- wrote the endpoint to fetch data from the database and send it to the client
