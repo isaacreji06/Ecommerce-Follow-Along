@@ -57,3 +57,8 @@
 
 ## Milestone 11
 - wrote the endpoint to fetch data from the database and send it to the client
+
+## Milestone 12
+- Made an endpoint which will send all products with user mail to frontend
+- In frontend, a function to get all the data 
+- Displayed these data dynamically passing to product card component
