@@ -3,8 +3,10 @@ if (process.env.NODE_ENV!=='PRODUCTION'){
         path:'./src/config/.env',
     });
 }
+const cors=require('cors')
 const express=require('express')
 const app=express()
+app.use(cors())
 const userRouter=require("./routes/user.route.js")
 const productRouter=require('./routes/product.route.js')
 app.use(express.json())

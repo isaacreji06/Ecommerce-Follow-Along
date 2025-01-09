@@ -1,18 +1,17 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 function Card({
   title,
-
   image,
   description,
-  // eslint-disable-next-line react/prop-types
   discountedPrice,
-  // eslint-disable-next-line react/prop-types
   originalPrice,
-  // eslint-disable-next-line react/prop-types
   rating,
+  id
 }) {
   return (
-    <div className="w-72 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+    <div className="w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
       {/* Image Container */}
       <div className="relative">
         <img
@@ -58,6 +57,11 @@ function Card({
           <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200">
             Add to cart
           </button>
+          <Link to = {`/update-form/${id}`}>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200">
+            update
+          </button>
+          </Link>
         </div>
       </div>
     </div>

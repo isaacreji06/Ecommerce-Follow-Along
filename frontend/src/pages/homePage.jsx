@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import Card from '../component/ProductCard/Card';
+import Card from "../components/ProductCard/Card"
 import axios from 'axios';
 
 function HomePage() {
-  const [data, setdata] = useState();
+  const [data, setdata] = useState([]);
   const fetchProduct = async () => {
     const response = await axios.get(
       'http://localhost:8080/product/get-products'
@@ -28,8 +28,7 @@ function HomePage() {
       <div className="grid grid-cols-3">
         {data?.map((ele, index) => {
           return (
-            // eslint-disable-next-line react/jsx-key
-            <div style={{ margin: 'auto' }} className="border border-white">
+            <div key={ele._id} style={{ margin: 'auto' }} className="border border-white">
               <Card
                 title={ele.title}
                 image={ele.images[0] ? ele.images[0] : 'Product Image missing'}
@@ -38,6 +37,7 @@ function HomePage() {
                 originalPrice={ele.originalPrice}
                 discountedPrice={ele.discountedPrice}
                 rating={ele.rating}
+                id={ele._id}
               />
             </div>
           );
