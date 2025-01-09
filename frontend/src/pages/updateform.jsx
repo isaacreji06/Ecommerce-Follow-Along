@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import {useParams} from 'react-router'
 import { Upload } from 'lucide-react';
 import axios from 'axios';
-// eslint-disable-next-line react-refresh/only-export-components
-function ProductEntryPage() {
+function Updateform() {
+    const {id}=useParams()
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -14,7 +15,7 @@ function ProductEntryPage() {
     category: '',
   });
   const [errorInput, setInputError] = useState('');
-  const [Images, setImages] = useState([]);
+  const [Images, setImages] = useState(null);
 
   const handleImageUpload = (e) => {
     const ImagesArray = Array.from(e.target.files);
@@ -63,11 +64,11 @@ function ProductEntryPage() {
     formDataBody.append('quantity', quantity);
     formDataBody.append('rating', rating);
 
-    Images.map((ele) => {
+    Images?.map((ele) => {
       formDataBody.append('filepath', ele);
     });
     let requestdata = await axios
-      .post('http://localhost:8080/product/create-product', formDataBody, {
+      .put(`http://localhost:8080/product/update-product/${id}`, formDataBody, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -86,11 +87,17 @@ function ProductEntryPage() {
         console.log(
           `${pair[0]}: File - ${pair[1].name}, ${pair[1].type}, ${pair[1].size} bytes`
         );
-      } else {
-        console.log(`${pair[0]}: ${pair[1]}`);
       }
     }
   };
+  useEffect(()=>{
+    const getDataForId=async()=>{
+        const singleData=await axios.get(`http://localhost:8080/product/get-single/${id}`)
+        setFormData(singleData.data.data)
+        setImages(singleData.data.images)
+    }
+    getDataForId()
+  },[id]) 
   return (
     <div
       className="flex justify-center items-center border border-black"
@@ -155,7 +162,7 @@ function ProductEntryPage() {
         <div>
           <label htmlFor="">Upload Product Images</label>
           <br />
-          <input type="file" multiple onChange={handleImageUpload} />
+          <input type="file" name='files' multiple onChange={handleImageUpload} />
         </div>
         <div>
           <label htmlFor="">Enter Category</label>
@@ -189,4 +196,4 @@ function ProductEntryPage() {
   );
 }
 
-export default {ProductEntryPage};
+export default Updateform;

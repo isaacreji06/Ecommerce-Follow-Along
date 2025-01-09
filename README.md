@@ -62,3 +62,7 @@
 - Made an endpoint which will send all products with user mail to frontend
 - In frontend, a function to get all the data 
 - Displayed these data dynamically passing to product card component
+
+## Milestone 13
+- Backend: put route is added to update the data added in the card
+- Fontend: autofilling is done so as that when the page is loaded with the data filled except images
