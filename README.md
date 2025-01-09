@@ -66,3 +66,7 @@
 ## Milestone 13
 - Backend: put route is added to update the data added in the card
 - Fontend: autofilling is done so as that when the page is loaded with the data filled except images
+
+## Milestone 14
+- Backend: Delete route is added to delete a card data
+- Frontend: delete button is added to the card and delete logic is added
