@@ -49,7 +49,7 @@ const createProductController = async (req, res) => {
         success: false,
       });
     }
-    console.log(er);
+    console.log(req.files);
     return res.status(500).send({ message: er.message, success: false });
   }
 };
@@ -126,4 +126,21 @@ const getSingleProductDocumentController=async(req,res)=>{
     return res.status(500).send({message:err.message,success:false})
   }
 }
-module.exports = { createProductController, getProductDataController ,getSingleProductDocumentController, updateProductController };
+
+const deleteSingleProduct=async(req,res)=>{
+  const {id}=req.params
+  try{
+    const data=await ProductModel.findOne({_id:id})
+    if(!data){
+      return res.status(404).send({message:"Product not found"})
+
+    }
+    await ProductModel.findByIdAndDelete({_id:id})
+    const newData=await ProductModel.find()
+    return res.status(200).send({message:"fetched the product successfully",newData,success:true})
+  }
+  catch(err){
+    return res.status(500).send({message:err.message,success:false})
+  }
+}
+module.exports = { createProductController, getProductDataController ,getSingleProductDocumentController, updateProductController, deleteSingleProduct };
