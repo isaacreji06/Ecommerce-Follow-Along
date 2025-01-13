@@ -6,9 +6,11 @@ import { Routes,Route } from 'react-router-dom'
 import ProductEntryPage from './pages/productEntryPage'
 import Updateform from './pages/updateform'
 import HomePage from './pages/homePage'
+import Navbar from './components/Navbar/Navbar'
 function App(){
   return( 
   <div>
+    <Navbar />
   {/* <LoginPage /> */}
   {/* <SignupForm /> */}
   <Routes>

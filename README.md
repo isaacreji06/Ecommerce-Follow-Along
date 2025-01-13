@@ -70,3 +70,6 @@
 ## Milestone 14
 - Backend: Delete route is added to delete a card data
 - Frontend: delete button is added to the card and delete logic is added
+
+## Milestone 15
+- The Navbar is added to the website with functionality
