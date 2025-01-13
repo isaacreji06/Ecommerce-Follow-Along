@@ -73,3 +73,5 @@
 
 ## Milestone 15
 - The Navbar is added to the website with functionality
+## Milestone 16
+- product detail and image modal is added

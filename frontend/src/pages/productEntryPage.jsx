@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Upload } from 'lucide-react';
 import axios from 'axios';
-// eslint-disable-next-line react-refresh/only-export-components
 function ProductEntryPage() {
   const [formData, setFormData] = useState({
     title: '',
@@ -181,7 +180,7 @@ function ProductEntryPage() {
           />
         </div>
         {errorInput && <p>{errorInput}</p>}
-        <button type="Submit" className="bg-blue-400 text-white px-5 py-1">
+        <button type="submit" className="bg-blue-400 text-white px-5 py-1">
           Submit
         </button>
       </form>
@@ -189,4 +188,4 @@ function ProductEntryPage() {
   );
 }
 
-export default {ProductEntryPage};
+export default ProductEntryPage;
