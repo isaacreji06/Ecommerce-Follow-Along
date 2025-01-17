@@ -1,11 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 // import logo from '../../assets/logo.webp';
-function loginPage() {
+import axios from "axios"
+
+function LoginPage() {
+  const navigate = useNavigate();
+
+  const handleClickLogin=async()=>{
+    const res=await axios.post('http://localhost:8080/user/login');
+    localStorage.setItem('token',res.data.token)
+    console.log(res)
+    navigate('/')
+  }
   return(
   <div className="h-screen flex items-center justify-center">
     
-    <form action="#" className="space-y-6">
+    <form onSubmit={handleClickLogin} className="space-y-6">
         <div><img className="mx-auto h-10 w-auto" src="../../assets/logo.webp" alt="Logo" /></div>
               <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
             Sign in to your account
@@ -27,4 +37,4 @@ function loginPage() {
   
 }
 
-export default loginPage
+export default LoginPage
