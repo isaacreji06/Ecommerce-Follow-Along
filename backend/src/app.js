@@ -9,6 +9,7 @@ const app=express()
 app.use(cors())
 const userRouter=require("./routes/user.route.js")
 const productRouter=require('./routes/product.route.js')
+const cartRouter=require('./routes/cart.route.js')
 app.use(express.json())
 
 app.get("/",(req,res)=>{
@@ -16,4 +17,5 @@ app.get("/",(req,res)=>{
 })
 app.use('/user',userRouter)
 app.use('/product', productRouter)
+app.use('/cart',cartRouter)
 module.exports=app
