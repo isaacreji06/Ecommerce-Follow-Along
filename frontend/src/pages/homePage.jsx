@@ -19,7 +19,8 @@ function HomePage() {
     };
     callhandle();
   }, []);
-  console.log(data);
+
+
   const handleDelete=async(id)=>{
     console.log(id)
     const data=await axios.delete(`http://localhost:8080/product/${id}`)

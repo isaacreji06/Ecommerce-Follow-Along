@@ -2,6 +2,8 @@ const userModel=require('../models/user.model.js')
 const ErrorHandler=require("../utils/ErrorHandler.js")
 const transporter=require("../utils/sendMail.js")
 const jwt=require('jsonwebtoken')
+const cloudinary=require('../utils/cloudinary.js')
+const fs=require('fs')
 require('dotenv').config({
     path:'./src/config/.env',
 });
@@ -75,7 +77,16 @@ const verifyUser = (token) => {
       if (checkUserPresentinDB) {
         return res.status(403).send({ message: 'User already present' });
       }
-  
+      console.log('file',req.file,req.body,process.env.CLOUD_NAME)
+      const ImageAddress=await cloudinary.uploader
+      .upload(req.file.path,{
+        folder:'uploads'
+      })
+      .then((result)=>{
+        fs.unlinkSync(req.file.path)
+        return result.url
+      })
+      console.log('url', ImageAddress);
       bcrypt.hash(password, 10, async function (err, hashedPassword) {
         try {
           if (err) {
@@ -85,6 +96,10 @@ const verifyUser = (token) => {
             Name: name,
             email,
             password: hashedPassword,
+            avatar:{
+              url:ImageAddress,
+              public_id:`${email}_public_id`
+            }
           });
   
           return res.status(201).send({ message: 'User created successfully..' });
@@ -118,7 +133,7 @@ const verifyUser = (token) => {
           return res
             .status(200)
             .cookie('token', token)
-            .send({ message: 'User logged in successfully..', success: true });
+            .send({ message: 'User logged in successfully..', success: true,token, });
         }
       );
     } catch (er) {

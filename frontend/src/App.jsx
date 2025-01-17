@@ -8,20 +8,21 @@ import Updateform from './pages/updateform'
 import HomePage from './pages/homePage'
 import Navbar from './components/Navbar/Navbar'
 import SingleProductPage from './pages/singleProductPage'
+
 function App(){
   return( 
   <div>
-    <Navbar />
-  {/* <LoginPage /> */}
-  {/* <SignupForm /> */}
-  <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/loginPage" element={<LoginPage />} />
-    <Route path="/signupPage" element={<SignupForm />}/>
-    <Route path="/product-entry-page" element={<ProductEntryPage />}/>
-    <Route path="/update-form/:id" element={<Updateform />} />
-    <Route path="/product-details/:id" element={<SingleProductPage />} />
-  </Routes>
+      <Navbar />
+      {/* <LoginPage /> */}
+      {/* <SignupForm /> */}
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/loginPage" element={<LoginPage />} />
+        <Route path="/signupPage" element={<SignupForm />}/>
+        <Route path="/product-entry-page" element={<ProductEntryPage />}/>
+        <Route path="/update-form/:id" element={<Updateform />} />
+        <Route path="/product-details/:id" element={<SingleProductPage />} />
+      </Routes>
   </div>
   )
 }
