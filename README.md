@@ -79,3 +79,7 @@
 ## Milestone 17
 - Cart Schema added 
 - cart route added
+
+## Milestone 18 
+- Get cart data route
+- 
