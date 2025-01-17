@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import axios from 'axios'
 /* eslint-disable react/prop-types */
 function Card({
   title,
@@ -11,6 +11,14 @@ function Card({
   id,
   handleDelete
 }) {
+  const handleAddToCart=async()=>{
+    const token=localStorage.getItem('token')
+    try{
+      await axios.post(`http://localhost:8080/add-to-cart?token=${token}`,{productId:id,quantity:1})
+    }catch(er){
+      alert(er)
+    }
+  }
   return (
     <div className="w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
       {/* Image Container */}
@@ -55,7 +63,7 @@ function Card({
               {discountedPrice}
             </span>
           </div>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200" onClick={handleAddToCart}>
             Add to cart
           </button>
           <Link to = {`/update-form/${id}`}>
