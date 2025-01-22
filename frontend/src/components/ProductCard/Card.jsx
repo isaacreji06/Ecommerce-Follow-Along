@@ -16,7 +16,7 @@ function Card({
     try{
       await axios.post(`http://localhost:8080/add-to-cart?token=${token}`,{productId:id,quantity:1})
     }catch(er){
-      alert(er)
+      alert(er  )
     }
   }
   return (
@@ -72,7 +72,7 @@ function Card({
           </button>
           </Link>
           <Link>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors duration-200" onClick={()=>handleDelete(id)}>
+          <button className=" " onClick={()=>handleDelete(id)}>
             🗑️
           </button>
           </Link>

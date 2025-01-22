@@ -82,4 +82,7 @@
 
 ## Milestone 18 
 - Get cart data route
-- 
+
+## Milestone 19
+- added the cart component
+- made add to cart functional
