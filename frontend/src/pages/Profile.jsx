@@ -1,10 +1,5 @@
-import React from 'react'
-import ProfileCard from '../components/Profile/profileCard'
-function Profile() {
-  return (
-   <ProfileCard
-    />
-  )
-}
+import { ProfileCard } from '../component/Profile/ProfileCard.jsx';
 
-export default Profile
+export default function ProfilePage() {
+  return <ProfileCard />;
+}

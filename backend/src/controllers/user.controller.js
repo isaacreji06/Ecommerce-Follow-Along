@@ -4,6 +4,7 @@ const transporter=require("../utils/sendMail.js")
 const jwt=require('jsonwebtoken')
 const cloudinary=require('../utils/cloudinary.js')
 const fs=require('fs')
+const { default: mongoose } = require('mongoose');
 require('dotenv').config({
     path:'./src/config/.env',
 });
@@ -140,13 +141,24 @@ const verifyUser = (token) => {
       return res.status(403).send({ message: er.message, success: false });
     }
   };
-  const getUserData=async(req,res)=>{
-    const userId=req.userId
-    try{
-      if (!mongoose.Types.ObjectId.isValid(userId)){
-        return res.status(401).send({message:"send valid user id"})
+  const getUserData = async (req, res) => {
+    const userId = req.UserId;
+    try {
+      if (!mongoose.Types.ObjectId.isValid(userId)) {
+        return res.status(401).send({ message: 'Send Valid User Id' });
       }
-      const checkUserPresentinDB=await userModel.findOne({_id:userId})
+  
+      const checkUserPresentinDB = await userModel.findOne({ _id: userId });
+      if (!checkUserPresentinDB) {
+        return res
+          .status(401)
+          .send({ message: 'Please Signup, user not present' });
+      }
+  
+      return res.status(200).send({ data: checkUserPresentinDB });
+    } catch (er) {
+      return res.status(500).send({ message: er.message });
     }
-  }
-module.exports={createUser,verifyUserController,signUp,login}
+  };
+module.exports={createUser,verifyUserController,signUp,login,getUserData}
+
