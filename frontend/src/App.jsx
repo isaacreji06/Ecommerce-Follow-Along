@@ -6,10 +6,11 @@ import { Routes,Route } from 'react-router-dom'
 import ProductEntryPage from './pages/productEntryPage'
 import Updateform from './pages/updateform'
 import HomePage from './pages/homePage'
-import Navbar from './components/Navbar/Navbar'
+// import Navbar from './components/Navbar/Navbar'
 import SingleProductPage from './pages/singleProductPage'
 import CartPage from './pages/CartPage'
-
+import ProfilePage from './Pages/Profile';
+import Navbar from './component/Navbar/Navbar';
 function App(){
   return( 
   <div>
@@ -24,6 +25,7 @@ function App(){
         <Route path="/update-form/:id" element={<Updateform />} />
         <Route path="/product-details/:id" element={<SingleProductPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
   </div>
   )
