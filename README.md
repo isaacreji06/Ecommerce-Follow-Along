@@ -86,3 +86,5 @@
 ## Milestone 19
 - added the cart component
 - made add to cart functional
+## Milestone 20
+- added the profile page to the navabar and set up the backend route for fetching the user detail
