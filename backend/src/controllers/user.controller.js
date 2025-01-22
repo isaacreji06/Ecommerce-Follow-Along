@@ -161,3 +161,4 @@ const verifyUser = (token) => {
     }
   };
 module.exports={createUser,verifyUserController,signUp,login,getUserData}
+
