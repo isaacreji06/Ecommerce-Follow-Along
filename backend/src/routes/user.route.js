@@ -13,4 +13,5 @@ router.post("/create-user",upload.single('file'),createUser)
 router.get('/activation/:token',verifyUserController)
 router.post('/signup', upload.single('file'), signUp);
 router.post('/login', login);
+router.get('/user-data',verifyUser,)
 module.exports=router

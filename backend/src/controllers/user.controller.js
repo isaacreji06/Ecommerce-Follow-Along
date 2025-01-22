@@ -140,4 +140,13 @@ const verifyUser = (token) => {
       return res.status(403).send({ message: er.message, success: false });
     }
   };
+  const getUserData=async(req,res)=>{
+    const userId=req.userId
+    try{
+      if (!mongoose.Types.ObjectId.isValid(userId)){
+        return res.status(401).send({message:"send valid user id"})
+      }
+      const checkUserPresentinDB=await userModel.findOne({_id:userId})
+    }
+  }
 module.exports={createUser,verifyUserController,signUp,login}
