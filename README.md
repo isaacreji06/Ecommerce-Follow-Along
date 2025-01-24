@@ -91,3 +91,6 @@
 
 ## Milestone 21
 - created the adress form page
+
+## Milestone 22
+- created the backend endpoint for the address
