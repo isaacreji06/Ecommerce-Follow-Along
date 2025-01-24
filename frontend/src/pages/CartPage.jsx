@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CartCard from '../component/ProductCard/CartCard';
+import CartCard from '../components/ProductCard/CartCard';
 
 function CardPage() {
   const [UsersCartData, setUsersCartData] = useState([]);
@@ -33,7 +33,7 @@ function CardPage() {
               originalPrice={singleCartObject.productId.originalPrice}
               discountedPrice={singleCartObject.productId.discountedPrice}
               id={singleCartObject._id}
-              createdBy={'nayan@k.com'}
+              createdBy={'isaac@g.com'}
             />
           </div>
         );

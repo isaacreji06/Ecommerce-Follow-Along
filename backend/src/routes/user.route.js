@@ -9,6 +9,7 @@ const {
     getUserData,
     }=require('../controllers/user.controller.js')
 const jwt=require("jsonwebtoken")   
+const verifyUser = require('../middlewares/jwt-verify.js');
 const router=express.Router()
 router.post("/create-user",upload.single('file'),createUser)
 router.get('/activation/:token',verifyUserController)
