@@ -1,9 +1,10 @@
 import { RotateCcw, X } from 'lucide-react'
 import React from 'react'
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
-function CartCard( title,
-    {image,
+function CartCard( 
+    {title,
+      image,
     index,
     description,
     originalPrice,

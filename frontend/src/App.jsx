@@ -10,7 +10,8 @@ import HomePage from './pages/homePage'
 import SingleProductPage from './pages/singleProductPage'
 import CartPage from './pages/CartPage'
 import ProfilePage from './Pages/Profile';
-import Navbar from './component/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar'
+import AddressCard from './components/AddressComp/AddressCard'
 function App(){
   return( 
   <div>
@@ -24,9 +25,10 @@ function App(){
         <Route path="/product-entry-page" element={<ProductEntryPage />}/>
         <Route path="/update-form/:id" element={<Updateform />} />
         <Route path="/product-details/:id" element={<SingleProductPage />} />
-        <Route path="/cart" element={<CartPage />} />
+        <Route path="/cart" element={<CartPage />} /> 
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
+      {/* <AddressCard /> */}
   </div>
   )
 }
