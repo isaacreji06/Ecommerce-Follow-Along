@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddressCard = () => {
     const[city,setCity]=useState('')
@@ -7,17 +9,26 @@ const AddressCard = () => {
     const[add2,setAdd2]=useState('')
     const[zipCode,setZipcode]=useState('')
     const [addressType,setAddressType]=useState('')
-    const handleSubmit=(e)=>{
+    const navigate=useNavigate
+    const handleSubmit=async (e)=>{
         e.preventDefault()
         const addressData={
             city,
             country,
-            add1,
-            add2,
+            address1:add1,
+            address2:add2,
             zipCode,
             addressType
         }
         console.log(addressData)
+        const token=localStorage.getItem('token')
+        if(!token){
+            return alert('token missing')
+        }
+        const response= await axios.post(`http://localhost:8080/user/add-address?token=${token}`,
+            addressData
+        )
+        navigate('/profile')
     }
   return (
     <form className="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -105,6 +116,7 @@ const AddressCard = () => {
       </div>
 
       <button
+        onSubmit={handleSubmit}
         type="submit"
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
       >

@@ -7,6 +7,7 @@ const {
     login,
     signUp,
     getUserData,
+    AddAddressController,
     }=require('../controllers/user.controller.js')
 const jwt=require("jsonwebtoken")   
 const verifyUser = require('../middlewares/jwt-verify.js');
@@ -16,5 +17,6 @@ router.get('/activation/:token',verifyUserController)
 router.post('/signup', upload.single('file'), signUp);
 router.post('/login', login);
 router.get('/user-data', verifyUser, getUserData);
+router.post('/add-address', verifyUser, AddAddressController);
 
 module.exports=router
