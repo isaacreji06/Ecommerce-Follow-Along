@@ -27,9 +27,8 @@ function App(){
         <Route path="/product-details/:id" element={<SingleProductPage />} />
         <Route path="/cart" element={<CartPage />} /> 
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path='/add-address' element={<AddressCard />}
+        <Route path='/add-address' element={<AddressCard />} />
       </Routes>
-      {/* <AddressCard /> */}
   </div>
   )
 }
