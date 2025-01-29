@@ -187,4 +187,24 @@ const verifyUser = (token) => {
       return res.status(500).send({message:er.message})
     }
   }
-module.exports={createUser,verifyUserController,signUp,login,getUserData,AddAddressController}
+
+const getAddressController=async(req,res)=>{
+  const userID=req.UserId
+  try{
+    if (!mongoose.Types.ObjectId.isValid(userID)){
+      return res.status(401).send({message:"please login"})
+    }
+    const checkUser=await userModel.findOne({_id:userID})
+    if (!checkUser){
+      return res.status(401).send({message:"please signup"})
+    }
+    return res.status(200).send({
+      userInfo:checkUser,
+      message:'success',
+      success:true
+    })
+  }catch(err){
+    return res.status(500).send({message:err.message})
+  }
+}
+module.exports={createUser,verifyUserController,signUp,login,getUserData,AddAddressController,getAddressController}
