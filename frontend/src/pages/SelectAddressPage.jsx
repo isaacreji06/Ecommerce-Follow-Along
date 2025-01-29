@@ -12,10 +12,11 @@ function SelectAddressPage() {
             const response =await axios.get(`http://localhost:8080/user/get-adresses?token=${token}`)
             setAllAddresses(response.data.userInfo)
         }
+        fetchAddress()
     },[])
   return (
     <div>
-        <AddressList addresses={AllAddresses}/>
+        {<AddressList addresses={AllAddresses}/>}
     </div>
   )
 }
