@@ -16,7 +16,7 @@ function Card({
     try{
       await axios.post(`http://localhost:8080/add-to-cart?token=${token}`,{productId:id,quantity:1})
     }catch(er){
-      alert(er  )
+      alert(er)
     }
   }
   return (

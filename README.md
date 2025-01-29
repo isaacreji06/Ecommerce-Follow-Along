@@ -94,3 +94,7 @@
 
 ## Milestone 22
 - created the backend endpoint for the address
+
+## Milestone 23
+- created the checkout button from the cart
+- address selection option is available and once the address is selected the user is diverted to the order confirmation page
