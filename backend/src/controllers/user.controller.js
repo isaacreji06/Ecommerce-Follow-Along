@@ -196,7 +196,7 @@ const getAddressController=async(req,res)=>{
     }
     const checkUser=await userModel.findOne({_id:userID})
     if (!checkUser){
-      return res.status(401).send({message:"please signup"})
+      return res.status(401).send({message:"please signup"}, { address: 1 })
     }
     return res.status(200).send({
       userInfo:checkUser,

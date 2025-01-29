@@ -13,6 +13,7 @@ import ProfilePage from './Pages/Profile';
 import Navbar from './components/Navbar/Navbar'
 import AddressCard from './components/AddressComp/AddressCard'
 import SelectAddressPage from './pages/SelectAddressPage'
+import OrderConfirmation from './pages/OrderConfirmationPage'
 function App(){
   return( 
   <div>
@@ -30,6 +31,7 @@ function App(){
         <Route path="/profile" element={<ProfilePage />} />
         <Route path='/add-address' element={<AddressCard />} />
         <Route path='/select-address' element={<SelectAddressPage />} />
+        <Route path='/order-confirmation' element={<OrderConfirmation />} />
       </Routes>
   </div>
   )
