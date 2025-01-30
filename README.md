@@ -33,6 +33,11 @@
 - a file validation.js was creates so as to validate the data passed by the user in the signup form
 - react router dom is installed and routes are defined for login page and signup page
 
+## Milestone 6
+- Generated a JWT token for the user at signup.
+- Created a verification link with the token.
+- Configured Nodemailer to send the email with the verification link.
+- Created an endpoint to verify the token and activate the user.
 
 ## Milestone 7
 - Created the login and signup logic for the ecommerce application
