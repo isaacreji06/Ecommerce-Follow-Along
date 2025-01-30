@@ -73,45 +73,54 @@ const verifyUser = (token) => {
   }
   const signUp = async (req, res) => {
     const { name, email, password } = req.body;
+
     try {
-      const checkUserPresentinDB = await userModel.findOne({ email: email });
-      if (checkUserPresentinDB) {
-        return res.status(403).send({ message: 'User already present' });
-      }
-      console.log('file',req.file,req.body,process.env.CLOUD_NAME)
-      const ImageAddress=await cloudinary.uploader
-      .upload(req.file.path,{
-        folder:'uploads'
-      })
-      .then((result)=>{
-        fs.unlinkSync(req.file.path)
-        return result.url
-      })
-      console.log('url', ImageAddress);
-      bcrypt.hash(password, 10, async function (err, hashedPassword) {
-        try {
-          if (err) {
-            return res.status(403).send({ message: err.message });
-          }
-          await userModel.create({
-            Name: name,
-            email,
-            password: hashedPassword,
-            avatar:{
-              url:ImageAddress,
-              public_id:`${email}_public_id`
-            }
-          });
-  
-          return res.status(201).send({ message: 'User created successfully..' });
-        } catch (er) {
-          return res.status(500).send({ message: er.message });
+        const checkUserPresentinDB = await userModel.findOne({ email: email });
+        if (checkUserPresentinDB) {
+            return res.status(403).send({ message: 'User already present' });
         }
-      });
+
+        // **Check if file is uploaded**
+        if (!req.file) {
+            return res.status(400).send({ message: "File is missing" });
+        }
+
+        console.log('file', req.file, req.body, process.env.CLOUD_NAME);
+
+        // **Upload to Cloudinary**
+        const ImageAddress = await cloudinary.uploader
+            .upload(req.file.path, {
+                folder: 'uploads'
+            })
+            .then((result) => {
+                fs.unlinkSync(req.file.path);
+                return result.url;
+            });
+
+        console.log('url', ImageAddress);
+
+        bcrypt.hash(password, 10, async function (err, hashedPassword) {
+            if (err) {
+                return res.status(500).send({ message: err.message });
+            }
+
+            await userModel.create({
+                name,  // Changed `Name` to `name` for consistency
+                email,
+                password: hashedPassword,
+                avatar: {
+                    url: ImageAddress,
+                    public_id: `${email}_public_id`
+                }
+            });
+
+            return res.status(201).send({ message: 'User created successfully..' });
+        });
+
     } catch (er) {
-      return res.status(500).send({ message: er.message });
+        return res.status(500).send({ message: er.message });
     }
-  };
+};
   const login = async (req, res) => {
     const { email, password } = req.body;
     try {
