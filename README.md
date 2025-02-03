@@ -109,3 +109,8 @@
 
 ## Milestone 25
 - added the controller route and the model for the order confirmation page
+
+## Milestone 26
+- Added the order route to app.js
+- added the getuserorders in controller
+

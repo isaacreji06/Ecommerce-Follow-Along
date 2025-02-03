@@ -9,6 +9,7 @@ const cookieParser=require('cookie-parser')
 const app=express()
 app.use(cookieParser())
 app.use(cors())
+const OrderRoute=require('./routes/order.route.js')
 const userRouter=require("./routes/user.route.js")
 const productRouter=require('./routes/product.route.js')
 const cartRouter=require('./routes/cart.route.js')
@@ -20,4 +21,5 @@ app.get("/",(req,res)=>{
 app.use('/user',userRouter)
 app.use('/product', productRouter)
 app.use('/cart',cartRouter)
+app.use('/orders',OrderRoute)
 module.exports=app
