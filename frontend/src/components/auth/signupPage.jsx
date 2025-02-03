@@ -12,13 +12,13 @@ const SignupForm = () => {
   const navigateUser=useNavigate()
 const[err,setError]=useState("")
 
-  const handleChange = (e) => {
-    const{name,value,files}=e.target;
-    setFormData({...formData,
-      [name] : name == 'file'? files[0] : value
-    })
-    console.log(formData);
-  };
+const handleChange = (e) => {
+  const { name, value, files } = e.target;
+  setFormData(prevState => ({
+    ...prevState,
+    [name]: name === 'file' ? files[0] : value
+  }));
+};
   const handleSubmit = async(e) => {
     e.preventDefault()
     const NameV=validationFormObject.validateName(formData.name)
@@ -117,14 +117,15 @@ const[err,setError]=useState("")
             Upload File
           </label>
           <input
-            type="file"
-            id="file"
-            name="file"
-            accept='.jp, .jpeg, .png'
-            // onChange={handleFileChange}
-            className="w-full text-gray-700"
-            required
-          />
+  type="file"
+  id="file"
+  name="file"
+  accept=".jpg, .jpeg, .png"
+  onChange={handleChange}  // ← Add this line
+  className="w-full text-gray-700"
+  required
+/>
+
         </div>
         <p className='text-red'>{err}</p>
         {/* Submit Button */}
