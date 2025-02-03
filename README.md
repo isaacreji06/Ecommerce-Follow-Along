@@ -106,3 +106,6 @@
 
 ## Milestone 24
 - Created the checkout page
+
+## Milestone 25
+- added the controller route and the model for the order confirmation page
