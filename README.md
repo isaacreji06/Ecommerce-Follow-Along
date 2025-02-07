@@ -114,3 +114,9 @@
 - Added the order route to app.js
 - added the getuserorders in controller
 
+## Milestone 27
+- created a my-orders page
+- sent a get request to my-orders endpoint that we created in previous milestone.
+- sent user mail to endpoint to get all the user orders
+- Displayed all the user orders
+- added my-orders page in navbar for better navigation.
