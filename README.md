@@ -120,3 +120,8 @@
 - sent user mail to endpoint to get all the user orders
 - Displayed all the user orders
 - added my-orders page in navbar for better navigation.
+
+## Milestone 28
+- In my-orders page for every order cancel order button is added
+- If the order is already canceled this button is not be displayed
+- an endpoint is created that will receive the order-id

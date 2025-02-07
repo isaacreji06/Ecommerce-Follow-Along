@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { RotateCcw, X } from 'lucide-react'
 import React from 'react'
 import {Link} from 'react-router-dom'
@@ -12,6 +14,7 @@ function CartCard(
     rating,
     id,
     orderStatus,
+    handleCancel,
 createdBy}) {
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow p-4">
@@ -40,7 +43,7 @@ createdBy}) {
               <p className="text-lg text-gray-600">{description}</p>
               <p className="text-gray-500 mt-1">Sold by: {createdBy}</p>
             </div>
-            <button className="text-gray-500 hover:text-gray-700">
+            <button className="text-gray-500 hover:text-gray-700" onClick={orderStatus ? () => handleCancel(id) : () => {}}>
               <X className="w-6 h-6" />
             </button>
           </div>
