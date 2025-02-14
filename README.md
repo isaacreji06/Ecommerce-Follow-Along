@@ -125,3 +125,6 @@
 - In my-orders page for every order cancel order button is added
 - If the order is already canceled this button is not be displayed
 - an endpoint is created that will receive the order-id
+
+## Milestone 29
+- Made the payment gateway using Razorpay
