@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Card = ({ children, className = '' }) => (
   <div className={`bg-white rounded-lg shadow-lg p-6 ${className}`}>
@@ -23,18 +24,20 @@ const InfoSection = ({ icon, label, value }) => (
 );
 export function ProfileCard() {
   const [userData, setUserData] = useState({});
-  useEffect(() => {
-    const getUserData = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        return alert('Token missing login');
-      }
-      const response = await axios.get(
-        `http://localhost:8080/user/user-data?token=${token}`
-      );
+  const getUserData = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return alert('Token missing login');
+    }
+    const response = await axios.get(
+      `http://localhost:8080/user/user-data?token=${token}`
+    );
 
-      setUserData(response.data.data);
-    };
+    setUserData(response.data.data);
+  }
+  const data = useSelector((state) => state.user);
+  console.log(data);
+  useEffect(() => {
     getUserData();
   }, []);
   return (

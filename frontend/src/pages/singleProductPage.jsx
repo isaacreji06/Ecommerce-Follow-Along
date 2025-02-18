@@ -3,8 +3,10 @@ import { Heart, ShoppingBag, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ImageModal from "../components/imageModal/imageModal";
+import { useSelector } from "react-redux";
 
 function SingleProductPage() {
+  const data = useSelector((state) => state.user);
   const {id}=useParams()
   const [product,setProduct]=useState({})
   const [showImageModal,setShowImageModal]=useState(false)
