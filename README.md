@@ -128,3 +128,6 @@
 
 ## Milestone 29 & 30
 - Made the payment gateway using Razorpay
+
+## Milestone 31
+- Added redux to the platform
