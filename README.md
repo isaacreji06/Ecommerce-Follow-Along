@@ -131,3 +131,8 @@
 
 ## Milestone 31
 - Added redux to the platform
+
+## Milestone 32
+
+- In Login page Dispatch method is used to store the mail inside global state
+- In all the remaining pages acc the mail stored in global state using useSelector
