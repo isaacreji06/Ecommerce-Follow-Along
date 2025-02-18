@@ -156,11 +156,18 @@ const login = async (req, res) => {
         };
         const token = generateToken(data);
 
-        return res.status(200).cookie('token', token).send({
-          message: 'User logged in successfully..',
-          success: true,
-          token,
-        });
+        return res
+          .status(200)
+          .cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'Strict',
+          })
+          .send({
+            message: 'User logged in successfully..',
+            success: true,
+            token,
+          });
       }
     );
 
