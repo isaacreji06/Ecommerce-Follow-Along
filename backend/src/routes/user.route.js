@@ -1,8 +1,9 @@
 const express=require('express')
 const multer=require('multer')
 const upload = multer({ dest: 'temp-uploads/' });
+// const upload = require('../middlewares/multer.js');
 const {
-    GetAddressController,
+  GetAddressConroller,
   CreateUSer,
   verifyUserController,
   signup,
@@ -20,5 +21,5 @@ router.post('/signup', upload.single('file'), signup);
 router.post('/login', login);
 router.get('/user-data', verifyUser, getUSerData);
 router.post('/add-address', verifyUser, AddAddressController);
-router.get('/get-addresses',verifyUser,GetAddressController)
+router.get('/get-addresses',verifyUser,GetAddressConroller)
 module.exports=router

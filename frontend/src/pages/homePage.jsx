@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 function HomePage() {
   const [data, setdata] = useState([]);
-  const data = useSelector((state) => state.user);
+  const dataRedux = useSelector((state) => state.user);
   const fetchProduct = async () => {
     const response = await axios.get(
       'http://localhost:8080/product/get-products'

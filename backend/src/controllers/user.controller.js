@@ -43,12 +43,12 @@ async function CreateUSer(req, res) {
   };
   const token = generateToken(data);
   await transporter.sendMail({
-    to:'isaac.reji@kalvium.community',
-    from: 'isaacreji2006@gmail.com',
-    subject:'verification email',
-    text:'Text',
-    html:`<h1>Hello world</h1> http://localhost:8080/Activation/${token}`
-})
+    to: 'naayaankumar@gmail.com',
+    from: 'naayaankumar@gmail.com',
+    subject: 'verification email from follow along project',
+    text: 'Text',
+    html: `<h1>Hello world   http://localhost:5173/activation/${token} </h1>`,
+  });
 
   await newUser.save();
 
@@ -264,7 +264,7 @@ const DeleteAddyController = async (req, res) => {
   }
 };
 
-const GetAddressController = async (req, res) => {
+const GetAddressConroller = async (req, res) => {
   const userId = req.UserId;
   try {
     if (!mongoose.Types.ObjectId.isValid(userId)) {
@@ -285,7 +285,7 @@ const GetAddressController = async (req, res) => {
   }
 };
 module.exports = {
-  GetAddressController,
+  GetAddressConroller,
   CreateUSer,
   verifyUserController,
   signup,
