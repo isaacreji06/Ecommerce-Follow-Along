@@ -9,12 +9,13 @@ const cookieParser=require('cookie-parser')
 const app=express()
 app.use(cookieParser())
 app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 const OrderRoute=require('./routes/order.route.js')
 const userRouter=require("./routes/user.route.js")
 const productRouter=require('./routes/product.route.js')
 const cartRouter=require('./routes/cart.route.js')
 const PaymentRouter = require('./routes/Payment.route.js');
-app.use(express.json())
 
 app.get("/",(req,res)=>{
     return res.send("Welcome to backend")

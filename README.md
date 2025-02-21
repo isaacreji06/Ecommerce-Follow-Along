@@ -142,3 +142,7 @@
 - Used sign method to create an JWT token with mail and ID
 - Gave maxAge to set expire time
 - Added the cookie inside the response that helps to store the cookie inside browser.
+
+## Milestone 34
+- Used Jwt in login and any communication between client and the server
+- stored jwt in cookie

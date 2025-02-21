@@ -1,47 +1,37 @@
 const mongoose = require('mongoose');
 const UserModel = require('../models/user.model');
 const CartModel = require('../models/cart.model');
+
 async function AddToCartController(req, res) {
   const { productId, quantity } = req.body;
-  const userId = req.UserId;
-  console.log(userId);
+  const userId = req.userId; // Extracted from middleware
+
   try {
     if (!mongoose.Types.ObjectId.isValid(productId)) {
-      return res.status(400).send({ message: 'Send Valid Product ID' });
+      return res.status(400).json({ message: "Invalid Product ID", success: false });
     }
     if (!mongoose.Types.ObjectId.isValid(userId)) {
-      return res
-        .status(400)
-        .send({ message: 'Send Valid User ID', success: false });
+      return res.status(400).json({ message: "Invalid User ID", success: false });
     }
 
-    const checkUSerpresent = await UserModel.findOne({ _id: userId });
-    if (!checkUSerpresent) {
-      return res
-        .status(401)
-        .send({ message: 'Un-Authorized Please signup', success: false });
+    const userExists = await UserModel.findById(userId);
+    if (!userExists) {
+      return res.status(401).json({ message: "Unauthorized. Please sign up.", success: false });
     }
 
-    const checkIfProductPresent = await CartModel.findOne({
-      productId: productId,
-    });
-    if (checkIfProductPresent) {
-      return res
-        .status(400)
-        .send({ message: 'Product Already Present in Cart', success: false });
+    // Check if product is already in cart for this specific user
+    const existingCartItem = await CartModel.findOne({ userId, productId });
+
+    if (existingCartItem) {
+      return res.status(400).json({ message: "Product is already in the cart", success: false });
     }
 
-    await CartModel.create({
-      productId,
-      quantity,
-      userId,
-    });
+    // Add product to cart
+    await CartModel.create({ userId, productId, quantity });
 
-    return res
-      .status(201)
-      .send({ message: 'Product is successfully created', success: true });
-  } catch (er) {
-    return res.status(500).send({ message: er.message, success: false });
+    return res.status(201).json({ message: "Product added to cart successfully", success: true });
+  } catch (error) {
+    return res.status(500).json({ message: error.message, success: false });
   }
 }
 
